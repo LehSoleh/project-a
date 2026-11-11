@@ -1,36 +1,55 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Project A: Web Portal Informasi & Manajemen Profil Akun In-Game
 
-## Getting Started
+Web portal informasi interaktif berbasis Next.js yang terintegrasi dengan database PostgreSQL eksternal (host di Linux via jaringan Tailscale). Menyediakan portal konten informasi publik serta area personal pengguna untuk mengelola profil dan menautkan akun in-game mereka.
 
-First, run the development server:
+---
+
+## Tech Stack
+
+- **Framework:** Next.js 16 (App Router)
+- **UI Library:** React 19 & React DOM 19
+- **Bahasa:** TypeScript
+- **Database:** PostgreSQL (Linux remote host via Tailscale)
+- **ORM / Data Layer:** Prisma ORM
+- **Runtime Lokal:** Node.js v26+, npm
+
+---
+
+## Ringkasan Fitur
+
+- [ ] **Portal Informasi:** Halaman berita/artikel/panduan game dinamis dari database.
+- [ ] **Autentikasi & Sesi:** Login akun, verifikasi kredensial, dan proteksi rute.
+- [ ] **Profil Pengguna:** Halaman profil terintegrasi data database.
+- [ ] **Manajemen Akun In-Game:** Penautan (*binding*), update, dan pemutusan akun in-game (IGN, UID, server/region).
+- [ ] **UI Responsif:** Navbar dinamis (guest/auth), skeleton loading, dan error boundary.
+
+---
+
+## Menjalankan Proyek
+
+### Prasyarat
+
+1. Node.js `v20+` terpasang di mesin lokal.
+2. Jaringan Tailscale aktif dan terhubung ke node Linux penyedia PostgreSQL.
+3. File `.env.local` di root proyek dengan string koneksi database:
+   ```env
+   DATABASE_URL="postgresql://<USER>:<PASSWORD>@<IP_TAILSCALE_LINUX>:5432/<DB_NAME>?schema=public"
+   ```
+
+### Jalankan Dev Server
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Buka [http://localhost:3000](http://localhost:3000) di browser.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+---
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Log Pengembangan & Sesi
 
-## Learn More
+Seluruh catatan perkembangan teknis, serah-terima antar-sesi AI/developer, dan roadmap modular dicatat di direktori:
 
-To learn more about Next.js, take a look at the following resources:
+👉 **[Lihat Indeks Sesi Pengembangan (`sessions/README.md`)](sessions/README.md)**
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
